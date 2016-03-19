@@ -152,11 +152,10 @@ lista_palabras = list()
 for word,count in dictpalabras.items(): #lista las palabras del diccionario por el valor, no por la palabra
 	lista_palabras.append( (count,word) ) #anade una tupla
 
-#print lista_palabras
-#lista_palabras.sort() # ordena las palabras por el valor de menor a mayor
+lista_palabras.sort() # ordena las palabras por el valor de menor a mayor
 
-# lista_palabras.sort(reverse=True) # ordena las palabras por valor de mayor a menor
-# print lista_palabras
+for contador,palabra in lista_palabras:
+	print contador, palabra
 
 
 
