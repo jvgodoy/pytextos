@@ -1,0 +1,57 @@
+adverbios = ["mas", "poco", "pocos", "poca", " pocas ", "mucho", "mucha",
+"muchos", "muchas", "suficiente", "bastante", "suficientes", "bastantes",
+"mejor", "peor", "deprisa", "lento", "bien", "mal", "tan", "tanto", "mas",
+"menos", "mejor", "ademas", "tantas", "muy"]
+
+handle = open('foix.txt')
+text = handle.read()
+
+import re
+palabras = re.findall('[a-zA-Z0-9]+', text)
+advmente = re.findall(' \S+mente', text)
+
+
+contadverbios = 0 + len(advmente)
+dictadv = dict()
+listadv = list()
+
+for word in palabras:
+ 	if word in adverbios:
+ 		dictadv[word] = dictadv.get(word, 0) + 1
+ 		contadverbios = contadverbios + 1
+
+print 'Numero de palabras: ', len(palabras)
+print 'Numero de advervios: ', contadverbios
+
+for k,v in dictadv.items():
+	listadv.append( (v,k) ) 
+
+listadv.sort(reverse=True)
+
+for v,k in listadv:
+	print v, k
+
+print advmente
+
+
+
+
+
+# 		print word
+# 	elif word == adv:
+# 		print word
+
+
+
+
+
+
+# suma = list()
+
+# # numb = [int(i) for i in numbers]
+# # print numb
+
+# for i in numbers:
+# 	suma.append(int(i))
+
+# print sum(suma)
