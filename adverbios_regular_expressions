@@ -3,25 +3,30 @@ adverbios = ["mas", "poco", "pocos", "poca", " pocas ", "mucho", "mucha",
 "mejor", "peor", "deprisa", "lento", "bien", "mal", "tan", "tanto", "mas",
 "menos", "mejor", "ademas", "tantas", "muy"]
 
-handle = open('foix.txt')
+file = raw_input('Escribe el nombre del archivo: ')
+
+try:
+	handle = open(file)
+except:
+	print('no se encuentra el archivo')
+	exit()
+
 text = handle.read()
 
 import re
 palabras = re.findall('[a-zA-Z0-9]+', text)
-advmente = re.findall(' \S+mente', text)
+advmente = re.findall('\S+mente', text)
 
-
-contadverbios = 0 + len(advmente)
 dictadv = dict()
 listadv = list()
-
 for word in palabras:
  	if word in adverbios:
  		dictadv[word] = dictadv.get(word, 0) + 1
- 		contadverbios = contadverbios + 1
+ 	elif word in advmente:
+		dictadv[word] = dictadv.get(word, 0) + 1
 
-print 'Numero de palabras: ', len(palabras)
-print 'Numero de advervios: ', contadverbios
+#print 'Numero de palabras: ', len(palabras)
+print 'Numero de advervios: ', len(dictadv)
 
 for k,v in dictadv.items():
 	listadv.append( (v,k) ) 
@@ -30,8 +35,6 @@ listadv.sort(reverse=True)
 
 for v,k in listadv:
 	print v, k
-
-print advmente
 
 
 
