@@ -1,0 +1,36 @@
+file = raw_input('Escribe el nombre del archivo: ') + '.txt'
+
+try:
+	handle = open(file)
+except:
+	print('no se encuentra el archivo')
+	exit()
+
+text = handle.read() # lee el texto
+texto = text.split() # divide el texto en palabras
+frases = text.split(".")
+comas = text.split(",")
+
+
+contapalabras = 0
+dictpalabras = dict()
+
+for palabra in texto:
+	palabra = palabra.translate(None, string.punctuation)
+	palabra = palabra.lower()
+	dictpalabras[palabra] = dictpalabras.get(palabra,0) + 1
+	contapalabras = contapalabras + 1
+
+
+lista_palabras = list()
+
+for word,count in dictpalabras.items(): #lista las palabras del diccionario por el valor, no por la palabra
+	lista_palabras.append( (count,word) ) #anade una tupla
+
+#print lista_palabras
+#lista_palabras.sort() # ordena las palabras por el valor de menor a mayor
+
+lista_palabras.sort(reverse=True) # ordena las palabras por valor de mayor a menor
+
+for v,k in lista_palabras[:100]:
+	print v,k
