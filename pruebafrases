@@ -1,0 +1,25 @@
+file = raw_input('Escribe el nombre del archivo: ') + '.txt'
+try:
+   #texto = open('dokusho.txt')
+   texto = open(file)
+   archivo = texto.read()
+
+except:
+   print('no se encuentra el archivo')
+   quit()
+
+signos = [',','"','?','!',':']
+
+#palabras = archivo.split(".")
+palabras = archivo.split('.')
+print len(palabras)
+print "\n"
+for frase in palabras:
+	print len(frase) - 1
+
+
+# print palabras
+# print len(palabras)
+# print palabras[0]
+   # esto es una lista de las palabras del texto
+
