@@ -1,3 +1,5 @@
+import string
+
 file = raw_input('Escribe el nombre del archivo: ') + '.txt'
 
 try:
