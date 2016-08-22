@@ -10,7 +10,7 @@ except:
 texto = archivo.split()
 nosustan = ["ciudad", "universidad"]
 nogerun = ["cuando", "mando", "segundo", "mundo", "fernando",
-"edmundo", "estupendo", "dividendo"]
+"edmundo", "estupendo", "dividendo", "hondo"]
 # sustantivos = []
 # adverbios = []
 # gerundio = []
