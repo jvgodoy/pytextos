@@ -9,7 +9,7 @@ except:
 
 texto = archivo.split()
 nogerun = ["cuando", "mando", "segundo", "mundo", "fernando",
-"edmundo"]
+"edmundo", "estupendo", "dividendo"]
 # sustantivos = []
 # adverbios = []
 # gerundio = []
@@ -27,7 +27,7 @@ lgerundios = list() #lista
 #Terminaciones
 for word in texto:
 	word = word.lower()
- 	if word.endswith('idad') or word.endswith('idades') or word.endswith('cion') or word.endswith('ciones') or word.endswith('anza') or word.endswith('ancia') or word.endswith('ancias')  or word.endswith('dad') or word.endswith('itud') or word.endswith('aje'):
+ 	if word.endswith('idad') or word.endswith('idades') or word.endswith('cion') or word.endswith('ciones') or word.endswith('anza') or word.endswith('ancia') or word.endswith('ancias')  or word.endswith('dad') or word.endswith('itud') or word.endswith('aje') or word.endswith('eza') or word.endswith('icia') or word.endswith('ficio'):
  		#sustantivos.append(word)
  		#print "Sustantivo: ", word
  		dsustantivos[word] = dsustantivos.get(word,0) + 1
@@ -46,6 +46,7 @@ for word in texto:
 
 
 #PINTA EN ORDEN LOS SUSTANTIVOS
+
 for word,count in dsustantivos.items(): #lista las palabras del diccionario por el valor, no por la palabra
 	lsustantivos.append( (count,word) ) #anade una tupla
 
