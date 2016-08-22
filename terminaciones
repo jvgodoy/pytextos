@@ -51,13 +51,17 @@ for word in texto:
 for word,count in dsustantivos.items(): #lista las palabras del diccionario por el valor, no por la palabra
 	lsustantivos.append( (count,word) ) #anade una tupla
 
+print sum(dsustantivos.values()), "sustantivos"
+
 lsustantivos.sort(reverse=True) # ordena las palabras por valor de mayor a menor
 for v,k in lsustantivos[:]:
 	print "Sustantivo:", v,k
 
 #PINTA EN ORDEN LOS ADVERBIOS
 for word,count in dadverbios.items(): 
-	ladverbios.append( (count,word) ) 
+	ladverbios.append( (count,word) )
+
+print sum(dadverbios.values()), "adverbios"
 
 ladverbios.sort(reverse=True)
 for v,k in ladverbios[:]:
@@ -66,6 +70,8 @@ for v,k in ladverbios[:]:
 #PINTA EN ORDEN LOS GERUNDIOS
 for word,count in dgerundios.items(): 
 	lgerundios.append( (count,word) ) 
+
+print sum(dgerundios.values()), "gerundios"
 
 lgerundios.sort(reverse=True)
 for v,k in lgerundios[:]:
@@ -85,3 +91,5 @@ for v,k in lgerundios[:]:
 # 	if word not in nogerun:
 #  		if word.endswith('ndo'):
 #  			print "Gerundio: ", word
+
+
