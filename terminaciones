@@ -10,7 +10,15 @@ except:
 
 texto = archivo.split()
 
-#Terminaciones sustantivos/adverbios a verbos
+#Terminaciones
 for word in texto:
-	if word.endswith('idad') or word.endswith('idades') or word.endswith('mente') or word.endswith('cion') or word.endswith('ciones') or word.endswith('anza') or word.endswith('ancia') or word.endswith('ancias'):
-		print word
+ 	if word.endswith('idad') or word.endswith('idades') or word.endswith('mente') or word.endswith('cion') or word.endswith('ciones') or word.endswith('anza') or word.endswith('ancia') or word.endswith('ancias'):
+ 		print "Sustantivos: ", word
+
+#Gerundios
+nogerun = ["cuando", "mando", "segundo", "mundo"]
+for word in texto:
+	word = word.lower()
+	if word not in nogerun:
+ 		if word.endswith('ndo'):
+ 			print "Gerundio: ", word
