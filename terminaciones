@@ -10,31 +10,70 @@ except:
 texto = archivo.split()
 nogerun = ["cuando", "mando", "segundo", "mundo", "fernando",
 "edmundo"]
-sustantivos = []
-adverbios = []
-gerundio = []
+# sustantivos = []
+# adverbios = []
+# gerundio = []
+
+dsustantivos = dict() #diccionario
+lsustantivos = list() #lista
+
+dadverbios = dict() #diccionario
+ladverbios = list() #lista
+
+dgerundios = dict() #diccionario
+lgerundios = list() #lista
 
 
 #Terminaciones
 for word in texto:
 	word = word.lower()
- 	if word.endswith('idad') or word.endswith('idades') or word.endswith('cion') or word.endswith('ciones') or word.endswith('anza') or word.endswith('ancia') or word.endswith('ancias'):
- 		sustantivos.append(word)
- 		print "Sustantivo: ", word
+ 	if word.endswith('idad') or word.endswith('idades') or word.endswith('cion') or word.endswith('ciones') or word.endswith('anza') or word.endswith('ancia') or word.endswith('ancias')  or word.endswith('dad') or word.endswith('itud') or word.endswith('aje'):
+ 		#sustantivos.append(word)
+ 		#print "Sustantivo: ", word
+ 		dsustantivos[word] = dsustantivos.get(word,0) + 1
+ 		
 
  	elif word.endswith('mente'):
- 		adverbios.append(word)
- 		print "Adverbio: ", word
+ 		#adverbios.append(word)
+ 		#print "Adverbio: ", word
+ 		dadverbios[word] = dadverbios.get(word,0) + 1
 
- 	elif word not in nogerun:
- 		if word.endswith('ndo'):
- 			gerundio.append(word)
- 			print "Gerundio: ", word
+	elif word not in nogerun:
+		if word.endswith('ndo'):
+			dgerundios[word] = dgerundios.get(word,0) + 1
+ 			#gerundio.append(word)
+ 			#print "Gerundio: ", word
 
-print "\n"
-print len(sustantivos), "sustantivos"
-print len(adverbios), "adverbios terminados en -mente"
-print len(gerundio), "gerundios"
+
+#PINTA EN ORDEN LOS SUSTANTIVOS
+for word,count in dsustantivos.items(): #lista las palabras del diccionario por el valor, no por la palabra
+	lsustantivos.append( (count,word) ) #anade una tupla
+
+lsustantivos.sort(reverse=True) # ordena las palabras por valor de mayor a menor
+for v,k in lsustantivos[:]:
+	print "Sustantivo:", v,k
+
+#PINTA EN ORDEN LOS ADVERBIOS
+for word,count in dadverbios.items(): 
+	ladverbios.append( (count,word) ) 
+
+ladverbios.sort(reverse=True)
+for v,k in ladverbios[:]:
+	print "Adverbio:", v,k
+
+#PINTA EN ORDEN LOS GERUNDIOS
+for word,count in dgerundios.items(): 
+	lgerundios.append( (count,word) ) 
+
+lgerundios.sort(reverse=True)
+for v,k in lgerundios[:]:
+	print "Gerundio:", v,k
+
+
+
+# print len(sustantivos), "sustantivos"
+# print len(adverbios), "adverbios terminados en -mente"
+# print len(gerundio), "gerundios"
 #print sorted(gerundio)
 
 #Gerundios
