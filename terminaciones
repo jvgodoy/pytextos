@@ -1,0 +1,16 @@
+file = raw_input('Escribe el nombre del archivo: ') + '.txt'
+try:
+   #texto = open('dokusho.txt')
+   texto = open(file)
+   archivo = texto.read()
+
+except:
+   print('no se encuentra el archivo')
+   quit()
+
+texto = archivo.split()
+
+#Terminaciones sustantivos/adverbios a verbos
+for word in texto:
+	if word.endswith('idad') or word.endswith('idades') or word.endswith('mente') or word.endswith('cion') or word.endswith('ciones') or word.endswith('anza') or word.endswith('ancia') or word.endswith('ancias'):
+		print word
