@@ -1,6 +1,5 @@
 file = raw_input('Escribe el nombre del archivo: ') + '.txt'
 try:
-   #texto = open('dokusho.txt')
    texto = open(file)
    archivo = texto.read()
 
@@ -9,16 +8,39 @@ except:
    quit()
 
 texto = archivo.split()
+nogerun = ["cuando", "mando", "segundo", "mundo", "fernando",
+"edmundo"]
+sustantivos = []
+adverbios = []
+gerundio = []
+
 
 #Terminaciones
 for word in texto:
- 	if word.endswith('idad') or word.endswith('idades') or word.endswith('mente') or word.endswith('cion') or word.endswith('ciones') or word.endswith('anza') or word.endswith('ancia') or word.endswith('ancias'):
- 		print "Sustantivos: ", word
+	word = word.lower()
+ 	if word.endswith('idad') or word.endswith('idades') or word.endswith('cion') or word.endswith('ciones') or word.endswith('anza') or word.endswith('ancia') or word.endswith('ancias'):
+ 		sustantivos.append(word)
+ 		print "Sustantivo: ", word
+
+ 	elif word.endswith('mente'):
+ 		adverbios.append(word)
+ 		print "Adverbio: ", word
+
+ 	elif word not in nogerun:
+ 		if word.endswith('ndo'):
+ 			gerundio.append(word)
+ 			print "Gerundio: ", word
+
+print "\n"
+print len(sustantivos), "sustantivos"
+print len(adverbios), "adverbios terminados en -mente"
+print len(gerundio), "gerundios"
+#print sorted(gerundio)
 
 #Gerundios
-nogerun = ["cuando", "mando", "segundo", "mundo"]
-for word in texto:
-	word = word.lower()
-	if word not in nogerun:
- 		if word.endswith('ndo'):
- 			print "Gerundio: ", word
+# nogerun = ["cuando", "mando", "segundo", "mundo"]
+# for word in texto:
+# 	word = word.lower()
+# 	if word not in nogerun:
+#  		if word.endswith('ndo'):
+#  			print "Gerundio: ", word
