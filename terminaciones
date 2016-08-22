@@ -8,6 +8,7 @@ except:
    quit()
 
 texto = archivo.split()
+nosustan = ["ciudad", "universidad"]
 nogerun = ["cuando", "mando", "segundo", "mundo", "fernando",
 "edmundo", "estupendo", "dividendo"]
 # sustantivos = []
@@ -27,16 +28,16 @@ lgerundios = list() #lista
 #Terminaciones
 for word in texto:
 	word = word.lower()
- 	if word.endswith('idad') or word.endswith('idades') or word.endswith('cion') or word.endswith('ciones') or word.endswith('anza') or word.endswith('ancia') or word.endswith('ancias')  or word.endswith('dad') or word.endswith('itud') or word.endswith('aje') or word.endswith('eza') or word.endswith('icia') or word.endswith('ficio'):
+	if word.endswith('idad') or word.endswith('idades') or word.endswith('cion') or word.endswith('ciones') or word.endswith('anza') or word.endswith('ancia') or word.endswith('ancias')  or word.endswith('dad') or word.endswith('itud') or word.endswith('aje') or word.endswith('eza') or word.endswith('icia') or word.endswith('ficio'):
+		dsustantivos[word] = dsustantivos.get(word,0) + 1
  		#sustantivos.append(word)
  		#print "Sustantivo: ", word
- 		dsustantivos[word] = dsustantivos.get(word,0) + 1
- 		
 
  	elif word.endswith('mente'):
+ 		dadverbios[word] = dadverbios.get(word,0) + 1
  		#adverbios.append(word)
  		#print "Adverbio: ", word
- 		dadverbios[word] = dadverbios.get(word,0) + 1
+ 		
 
 	elif word not in nogerun:
 		if word.endswith('ndo'):
